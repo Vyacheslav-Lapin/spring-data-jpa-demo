@@ -32,7 +32,7 @@ class CatTest {
     mockMvc.perform(get("/cats"))
       .andExpect(status().isOk())
       .andExpect(content().contentType(HAL_JSON_VALUE))
-      .andExpect(mvcResult -> assertEquals(3,
+      .andExpect(mvcResult -> assertEquals(4,
           parse(mvcResult.getResponse().getContentAsString())
               .<Integer>read("$.page.totalElements").intValue()));
   }

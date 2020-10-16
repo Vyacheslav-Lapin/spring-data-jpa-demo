@@ -9,7 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
 import lombok.Data;
-import lombok.EqualsAndHashCode.Exclude;
+import lombok.EqualsAndHashCode;
+import lombok.EqualsAndHashCode.Include;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -18,12 +19,13 @@ import lombok.Setter;
 @Data
 @Entity
 @Setter(PRIVATE)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-@RequiredArgsConstructor
+@RequiredArgsConstructor(staticName = "Cat")
 public class Cat {
 
   @Id
-  @Exclude
+  @Include
   @GeneratedValue
   @Column(updatable = false, nullable = false)
   UUID id;
@@ -31,7 +33,6 @@ public class Cat {
   @Version
   int version;
 
-  @NonNull
-  String name;
+  @NonNull String name;
 
 }

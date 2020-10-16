@@ -2,22 +2,21 @@ package ru.vlapin.experiments.springdatajpademo.config;
 
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import ru.vlapin.experiments.springdatajpademo.dao.CatRepository;
 import ru.vlapin.experiments.springdatajpademo.model.Cat;
 
 @Component
 @RequiredArgsConstructor
-public class DataJpaIniter implements ApplicationRunner {
+public class DataJpaIniter implements InitializingBean {
 
   CatRepository catRepository;
 
   @Override
-  public void run(ApplicationArguments args) throws Exception {
-    Stream.of("Мурзик, Барсик, Матроскин".split(", "))
-      .map(Cat::new)
+  public void afterPropertiesSet() {
+    Stream.of("Мурзик, Барсик, Матроскин, Том".split(", "))
+      .map(Cat::Cat)
       .forEach(catRepository::save);
   }
 }
