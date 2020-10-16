@@ -24,7 +24,7 @@
 
     <!--region Libs-->
     <vavr.version>0.10.3</vavr.version>
-    <lombok.version>1.18.14</lombok.version>
+    <lombok.version>1.18.16</lombok.version>
     <checker.version>3.7.0</checker.version>
     <annotations.version>20.1.0</annotations.version>
     <jcip-annotations.version>1.0</jcip-annotations.version>
@@ -177,6 +177,7 @@
 
   <dependencyManagement>
     <dependencies>
+
       <dependency>
         <groupId>io.vavr</groupId>
         <artifactId>vavr</artifactId>
@@ -366,30 +367,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>com.spotify</groupId>
-          <artifactId>dockerfile-maven-plugin</artifactId>
-          <version>${dockerfile-maven-plugin.version}</version>
-          <configuration>
-            <repository>${project.name}</repository>
-            <tag>${project.version}</tag>
-            <buildArgs>
-              <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-            </buildArgs>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>javax.activation</groupId>
-              <artifactId>javax.activation-api</artifactId>
-              <version>1.2.0</version>
-            </dependency>
-            <dependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-archiver</artifactId>
-              <version>3.6.0</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
           <groupId>org.projectlombok</groupId>
           <artifactId>lombok-maven-plugin</artifactId>
           <version>${lombok-maven-plugin.version}</version>
@@ -424,10 +401,6 @@
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>com.spotify</groupId>
-        <artifactId>dockerfile-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.projectlombok</groupId>

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.EqualsAndHashCode.Include;
@@ -36,3 +37,10 @@ public class Cat {
   @NonNull String name;
 
 }
+
+//class Buldog extends Dog {
+//
+//  public Buldog(@Size(max = 10) @NonNull String name) {
+//    super(name);
+//  }
+//}

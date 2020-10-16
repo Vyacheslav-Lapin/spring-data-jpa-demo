@@ -10,6 +10,7 @@ import ru.vlapin.experiments.springdatajpademo.model.jsonplaceholder.Post;
 
 @FeignClient(
     name = "PostJsonPlaceHolder",
+//    url = "https://jsonplaceholder.typicode.com/posts"//,
     url = "https://jsonplaceholder.typicode.com",
     path = "posts")
 public interface PostService {
